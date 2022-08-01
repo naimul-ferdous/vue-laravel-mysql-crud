@@ -53,6 +53,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $all_fields = $request->all();
         $all_fields["image"] = $image;
+        Storage::delete($post->image);
         $post->update($all_fields);
         return response()->json('Post updated');
     }
@@ -60,6 +61,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        Storage::delete($post->image);
         $post->delete();
 
         return response()->json('Post deleted');
