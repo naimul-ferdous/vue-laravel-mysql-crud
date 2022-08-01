@@ -14,6 +14,14 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all()->toArray();
+        foreach ($posts as $key => $value) {
+            // $path = Storage::url($value["image"]);
+            $path = base_path() . '/storage/app/' . $value["image"];
+            $type = pathinfo($path, PATHINFO_EXTENSION);
+            $data = file_get_contents($path);
+            $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+            $posts[$key]['image'] = $base64;
+        }
         return array_reverse($posts);
     }
 
@@ -41,8 +49,11 @@ class PostController extends Controller
 
     public function update($id, Request $request)
     {
+        $image = $this->UploadImage($request);
         $post = Post::find($id);
-        $post->update($request->all());
+        $all_fields = $request->all();
+        $all_fields["image"] = $image;
+        $post->update($all_fields);
         return response()->json('Post updated');
     }
 
