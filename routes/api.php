@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,9 @@ Route::middleware('api')->group(function () {
 //feedbacks api
 Route::middleware('api')->group(function () {
     Route::resource('feedbacks', FeedbackController::class);
+});
+
+//students api
+Route::middleware('api')->group(function () {
+    Route::resource('students', StudentController::class);
 });
