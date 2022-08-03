@@ -44,6 +44,12 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        // $path = Storage::url($value["image"]);
+        $path = base_path() . '/storage/app/' . $post["image"];
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+        $post['image'] = $base64;
         return response()->json($post);
     }
 
