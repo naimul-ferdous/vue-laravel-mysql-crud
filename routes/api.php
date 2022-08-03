@@ -6,6 +6,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\YoutubeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +43,9 @@ Route::middleware('api')->group(function () {
 //students api
 Route::middleware('api')->group(function () {
     Route::resource('students', StudentController::class);
+});
+
+//videos api
+Route::middleware('api')->group(function () {
+    Route::resource('videos', YoutubeController::class);
 });
