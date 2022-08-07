@@ -8,6 +8,8 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\YoutubeController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\EventController;
+
 
 
 /*
@@ -54,4 +56,10 @@ Route::middleware('api')->group(function () {
 //teachers api
 Route::middleware('api')->group(function () {
     Route::resource('teachers', TeacherController::class);
+});
+
+
+//events api
+Route::middleware('api')->group(function () {
+    Route::resource('events', EventController::class);
 });
