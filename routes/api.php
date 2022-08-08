@@ -9,6 +9,8 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\YoutubeController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\CategoryController;
 
 
 
@@ -25,6 +27,11 @@ use App\Http\Controllers\EventController;
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
+// });
+
+//categories api
+// Route::middleware('api')->group(function () {
+//     Route::resource('categories', CategoryController::class);
 // });
 
 
@@ -62,4 +69,9 @@ Route::middleware('api')->group(function () {
 //events api
 Route::middleware('api')->group(function () {
     Route::resource('events', EventController::class);
+});
+
+//programs api
+Route::middleware('api')->group(function () {
+    Route::resource('programs', ProgramController::class);
 });

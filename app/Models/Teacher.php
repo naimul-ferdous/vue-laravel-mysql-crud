@@ -17,4 +17,9 @@ class Teacher extends Model
         'phone',
         'description',
     ];
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class);
+    }
 }
