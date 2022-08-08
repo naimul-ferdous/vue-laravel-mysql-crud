@@ -14,7 +14,7 @@ class ProgramController extends Controller
     public function index()
     {
         $program = Program::find(1);
-        $teachers = $program->teachers;
-        return $teachers;
+        $events = $program->events;
+        return $events;
     }
 }

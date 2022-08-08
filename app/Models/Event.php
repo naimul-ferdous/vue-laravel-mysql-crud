@@ -14,4 +14,9 @@ class Event extends Model
         'description',
         'image',
     ];
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class);
+    }
 }

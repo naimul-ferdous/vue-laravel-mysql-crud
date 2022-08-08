@@ -16,4 +16,12 @@ class Program extends Model
     {
         return $this->hasMany(Teacher::class);
     }
+
+    /**
+     * Get the teachers for the program.
+     */
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }
