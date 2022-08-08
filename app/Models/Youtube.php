@@ -16,4 +16,9 @@ class Youtube extends Model
         'description',
         'url',
     ];
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class);
+    }
 }

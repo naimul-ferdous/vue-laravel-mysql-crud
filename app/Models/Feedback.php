@@ -19,4 +19,9 @@ class Feedback extends Model
         'email',
         'suggestion',
     ];
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class);
+    }
 }

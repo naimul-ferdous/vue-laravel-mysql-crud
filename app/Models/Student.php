@@ -41,4 +41,9 @@ class Student extends Model
         'paid',
         'receipt',
     ];
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class);
+    }
 }
