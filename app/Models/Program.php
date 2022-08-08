@@ -9,6 +9,14 @@ class Program extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'subtitle',
+        'description',
+        'banner_image',
+        'about_image',
+    ];
+
     /**
      * Get the teachers for the program.
      */
