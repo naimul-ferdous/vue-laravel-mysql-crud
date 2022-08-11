@@ -34,6 +34,7 @@ class TeacherController extends Controller
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
             'description' => $request->input('description'),
+            'program_id' => $request->input('program_id'),
         ]);
         $teacher->save();
         return response()->json('Teacher created!');

@@ -31,6 +31,8 @@ class EventController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'image' => $image,
+            'program_id' => $request->input('program_id'),
+
         ]);
         $event->save();
         return response()->json('Event created!');

@@ -15,6 +15,7 @@ class Youtube extends Model
         'duration',
         'description',
         'url',
+        'program_id'
     ];
 
     public function program()

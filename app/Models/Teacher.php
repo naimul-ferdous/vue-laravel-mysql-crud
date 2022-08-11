@@ -16,6 +16,7 @@ class Teacher extends Model
         'email',
         'phone',
         'description',
+        'program_id',
     ];
 
     public function program()
