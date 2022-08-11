@@ -11,6 +11,8 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ECMemberController;
+
 
 
 
@@ -74,4 +76,9 @@ Route::middleware('api')->group(function () {
 //programs api
 Route::middleware('api')->group(function () {
     Route::resource('programs', ProgramController::class);
+});
+
+//ecmembers api
+Route::middleware('api')->group(function () {
+    Route::resource('ecmembers', ECMemberController::class);
 });
