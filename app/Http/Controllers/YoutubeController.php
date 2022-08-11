@@ -25,6 +25,7 @@ class YoutubeController extends Controller
             'duration' => $request->input('duration'),
             'description' => $request->input('description'),
             'url' => $request->input('url'),
+            'program_id' => $request->input('program_id'),
         ]);
         $youtube->save();
         return response()->json('Youtube created!');
