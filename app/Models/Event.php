@@ -13,6 +13,7 @@ class Event extends Model
         'title',
         'description',
         'image',
+        'program_id'
     ];
 
     public function program()
