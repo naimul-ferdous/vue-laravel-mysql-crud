@@ -27,10 +27,13 @@ class TestMail extends Mailable
      */
     public function build()
     {
+
+        $toEmail =  $this->details["email"];
+
         return $this
             ->from('naimul@techknowgram.com')
-            ->to('tkglnaimul@gmail.com')
-            ->subject('Mail from rajtechnologies.com')
+            ->to($toEmail)
+            ->subject('Thanks For Getting in Touch')
             ->view('emails.TestMail');
     }
 }

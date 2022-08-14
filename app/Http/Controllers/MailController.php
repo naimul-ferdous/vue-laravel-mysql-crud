@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Mail\TestMail;
 use Illuminate\Support\Facades\Mail;
-
+use App\Models\GeneralFeebback;
 
 
 class MailController extends Controller
@@ -13,23 +13,32 @@ class MailController extends Controller
     public function store(Request $request)
     {
 
+        $feedback = new GeneralFeebback([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'subject' => $request->input('subject'),
+            'suggestion' => $request->input('suggestion'),
+        ]);
 
-        // 'title' => $request->input('title'),
-        // 'channel' => $request->input('channel'),
-        // 'duration' => $request->input('duration'),
-        // 'description' => $request->input('description'),
-        // 'url' => $request->input('url'),
-        // 'program_id' => $request->input('program_id'),
+        if ($this->sendMail($request)) {
+            $feedback->save();
+            return response()->json('Feedback created!');
+        } else {
+            return response()->json('Error: Mail sending or Feebback save failure');
+        }
+    }
+
+    public function sendMail(Request $request)
+    {
 
         $details = [
-            'title' => 'Mail from ItSolutionStuff.com',
-            'body' => 'This is for testing email using smtp'
+            'email' => $request->input('email'),
+            'title' => "This is the tribute to talaiwah",
+            'body' => "All the rajni fans. Don't miss the chance. Lungi dance lungi dance, lungi dance, lungi dance"
         ];
+
         Mail::send(new TestMail($details));
-        dd("Email is Sent.");
 
-
-
-        return response()->json('Email is Sent.');
+        return !(count(Mail::failures()) > 0);
     }
 }
