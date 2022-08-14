@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
+
+
 
 class MailController extends Controller
 {
@@ -17,10 +21,15 @@ class MailController extends Controller
         // 'url' => $request->input('url'),
         // 'program_id' => $request->input('program_id'),
 
+        $details = [
+            'title' => 'Mail from ItSolutionStuff.com',
+            'body' => 'This is for testing email using smtp'
+        ];
+        Mail::send(new TestMail($details));
+        dd("Email is Sent.");
 
 
 
-        // $youtube->save();
-        // return response()->json('Youtube created!');
+        return response()->json('Email is Sent.');
     }
 }
