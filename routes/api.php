@@ -12,6 +12,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ECMemberController;
+use App\Http\Controllers\FooterController;
 
 
 
@@ -81,4 +82,7 @@ Route::middleware('api')->group(function () {
 //ecmembers api
 Route::middleware('api')->group(function () {
     Route::resource('ecmembers', ECMemberController::class);
+});
+Route::middleware('api')->group(function () {
+    Route::resource('footer', FooterController::class);
 });
