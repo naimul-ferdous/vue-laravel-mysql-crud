@@ -10,7 +10,7 @@ use App\Http\Controllers\YoutubeController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProgramController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ECMemberController;
 use App\Http\Controllers\FooterController;
 
@@ -85,4 +85,9 @@ Route::middleware('api')->group(function () {
 });
 Route::middleware('api')->group(function () {
     Route::resource('footer', FooterController::class);
+});
+
+//send-mail api
+Route::middleware('api')->group(function () {
+    Route::resource('send-mail', MailController::class);
 });
